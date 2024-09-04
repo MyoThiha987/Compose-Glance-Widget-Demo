@@ -8,7 +8,16 @@ espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.8.4"
 activityCompose = "1.9.1"
 composeBom = "2024.08.00"
-galanceAppWidget ="1.1.0"
+galanceAppWidget = "1.1.0"
+coroutine = "1.7.3"
+
+workmanager = "1.2.0"
+hilt = "2.51.1"
+ksp = "2.0.10-1.0.24"
+androidxHiltNavigationCompose = "1.2.0"
+androidx-workmanager ="2.9.1"
+ktor = "2.3.12"
+chucker = "4.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -25,13 +34,38 @@ androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-toolin
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
-androidx-galance-widget = { module ="androidx.glance:glance-appwidget" , version.ref ="galanceAppWidget"}
-androidx-galance-material = { module ="androidx.glance:glance-material3" , version.ref ="galanceAppWidget"}
-androidx-galance-appwidget-preview = { module ="androidx.glance:glance-appwidget-preview" , version.ref ="galanceAppWidget"}
-androidx-galance-preview = { module ="androidx.glance:glance-preview" , version.ref ="galanceAppWidget"}
+androidx-galance-widget = { module = "androidx.glance:glance-appwidget", version.ref = "galanceAppWidget" }
+androidx-galance-material = { module = "androidx.glance:glance-material3", version.ref = "galanceAppWidget" }
+androidx-galance-appwidget-preview = { module = "androidx.glance:glance-appwidget-preview", version.ref = "galanceAppWidget" }
+androidx-galance-preview = { module = "androidx.glance:glance-preview", version.ref = "galanceAppWidget" }
+
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
+hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
+androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "androidxHiltNavigationCompose" }
+androidx-hilt-compiler = {module="androidx.hilt:hilt-compiler",version.ref="androidxHiltNavigationCompose"}
+coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutine" }
+coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutine" }
+coroutines-play-services = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-play-services", version.ref = "coroutine" }
+
+ktor-client-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktor" }
+ktor-client-android = { group = "io.ktor", name = "ktor-client-android", version.ref = "ktor" }
+ktor-client-negotiation = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-client-okhttp = { group = "io.ktor", name = "ktor-client-okhttp", version.ref = "ktor" }
+serialization-kotlinx = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-logging = { group = "io.ktor", name = "ktor-client-logging", version.ref = "ktor" }
+chucker-debug = { group = "com.github.chuckerteam.chucker", name = "library", version.ref = "chucker" }
+chucker-release = { group = "com.github.chuckerteam.chucker", name = "library-no-op", version.ref = "chucker" }
+hilt-workmanager = { module = "androidx.hilt:hilt-work", version.ref = "workmanager" }
+androidx-workmanager ={module="androidx.work:work-runtime-ktx",version.ref="androidx-workmanager"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+kotlinXSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 
+[bundles]
+coroutine = ["coroutines-android", "coroutines-core", "coroutines-play-services", "androidx-core-ktx"]
+ktor = ["ktor-client-android", "ktor-client-core", "ktor-client-negotiation", "ktor-client-okhttp", "ktor-logging"]

@@ -2,16 +2,20 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.kotlinXSerialization)
 }
 
 android {
     namespace = "com.myothiha.composeglancewidgetdemo"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.myothiha.composeglancewidgetdemo"
         minSdk = 24
-        targetSdk = 34
+        //noinspection EditedTargetSdkVersion
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -48,6 +52,11 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
+    hilt {
+        enableAggregatingTask = false
+    }
+
 }
 
 dependencies {
@@ -67,6 +76,20 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+    ksp(libs.androidx.hilt.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
+
+    implementation(libs.bundles.ktor)
+    implementation(libs.bundles.coroutine)
+    debugImplementation(libs.chucker.debug)
+    releaseImplementation(libs.chucker.release)
+    implementation(libs.serialization.kotlinx)
+    implementation(libs.hilt.workmanager)
+    implementation(libs.androidx.workmanager)
+
 
     implementation(libs.androidx.galance.widget)
     implementation(libs.androidx.galance.material)
